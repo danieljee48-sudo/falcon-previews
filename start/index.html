@@ -1,56 +1,75 @@
 <!DOCTYPE html>
 <html lang="en-GB"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Falcon Web Studio — Modern websites for local businesses</title>
-<meta name="description" content="Affordable, modern websites for local UK businesses. Get a free mockup of your site, or have it built and live within a few days from £199.">
+<title>Falcon Web Studio — Free website mockup for your business</title>
+<meta name="description" content="Modern, high-converting websites for local UK businesses. Get a free mockup of your site before you pay a penny, or have it built and live within days from £199.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root{--accent:#e8562a;--dark:#12202e;--ink:#141c26;--muted:#5c6874;
-    --g:linear-gradient(135deg,var(--accent),color-mix(in oklab,var(--accent),#000 34%))}
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:Inter,-apple-system,"Segoe UI",sans-serif;color:#fff;min-height:100vh;
-    background:
-      radial-gradient(700px 400px at 80% -10%,color-mix(in oklab,var(--accent),transparent 55%),transparent 60%),
-      linear-gradient(180deg,#0c1620,#0a121a 100%),var(--dark);
-    background-color:var(--dark);display:flex;justify-content:center;padding:44px 20px 60px}
-  .card{width:100%;max-width:420px;text-align:center}
-  .logo{width:66px;height:66px;border-radius:20px;background:var(--g);display:grid;place-items:center;margin:0 auto 18px;font-size:32px;box-shadow:0 12px 30px color-mix(in oklab,var(--accent),transparent 55%)}
-  h1{font-family:"Space Grotesk",sans-serif;font-size:26px;letter-spacing:-.02em;margin-bottom:6px}
-  .tag{color:#aeb9c5;font-size:15px;margin-bottom:8px}
-  .pills{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:16px 0 30px}
-  .pills span{font-size:12px;color:#dfe6ee;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);padding:7px 12px;border-radius:999px}
-  a.btn{display:flex;align-items:center;gap:12px;justify-content:flex-start;text-decoration:none;color:#fff;
-    background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:16px;padding:17px 18px;margin-bottom:13px;
-    font-weight:600;font-size:16px;transition:transform .2s,background .2s,border-color .2s}
-  a.btn:hover{transform:translateY(-2px);background:rgba(255,255,255,.11)}
-  a.btn.primary{background:var(--g);border-color:transparent;box-shadow:0 12px 30px color-mix(in oklab,var(--accent),transparent 60%);justify-content:center}
-  a.btn .ico{font-size:20px}
-  a.btn .sub{display:block;font-weight:400;font-size:12.5px;color:#c7d0da}
-  a.btn.primary .sub{color:#ffe7dd}
-  .foot{margin-top:26px;color:#8a97a5;font-size:12.5px;line-height:1.7}
-  .foot a{color:#c7d0da}
+  :root{
+    --bg:#0b0a0d; --bg2:#111014; --line:rgba(255,255,255,.10);
+    --ink:#f5f1ea; --muted:#9b958c; --faint:#6a655e;
+    --accent:#ff5a30; --accent-soft:#ffb499;
+    --serif:'Fraunces',Georgia,serif; --sans:'Manrope',system-ui,sans-serif;
+    --ease:cubic-bezier(.19,1,.22,1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;
+    -webkit-font-smoothing:antialiased;min-height:100vh;display:flex;justify-content:center;
+    padding:52px 20px 60px;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  /* film grain */
+  body::before{content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.045;mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+  .halo{position:fixed;top:-18%;left:50%;transform:translateX(-50%);width:120vw;max-width:760px;height:520px;z-index:-1;
+    background:radial-gradient(circle at 50% 40%,rgba(255,90,48,.28),rgba(255,90,48,.05) 44%,transparent 68%);filter:blur(12px)}
+  .card{width:100%;max-width:430px;text-align:center;animation:rise .9s var(--ease) both}
+  @keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+  .logo{width:72px;height:72px;border-radius:22px;margin:0 auto 20px;display:grid;place-items:center;
+    background:linear-gradient(160deg,#1a181d,#0e0d11);border:1px solid var(--line);
+    box-shadow:0 20px 44px -18px rgba(255,90,48,.5)}
+  .logo svg{width:40px;height:29px;fill:var(--accent)}
+  h1{font-family:var(--serif);font-weight:500;font-size:29px;letter-spacing:-.02em;margin-bottom:8px}
+  .tag{color:var(--muted);font-size:15px;max-width:32ch;margin:0 auto 18px}
+  .pills{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:0 0 30px}
+  .pills span{font-size:12px;color:var(--ink);background:rgba(255,255,255,.05);border:1px solid var(--line);
+    padding:7px 13px;border-radius:999px}
+  a.btn{position:relative;display:flex;align-items:center;gap:14px;justify-content:flex-start;text-align:left;
+    background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:17px 20px;margin-bottom:12px;
+    font-weight:600;font-size:15.5px;overflow:hidden;transition:transform .4s var(--ease),border-color .4s,background .4s}
+  a.btn:hover{transform:translateY(-3px);border-color:rgba(255,90,48,.45);background:#17151b}
+  a.btn .ico{font-size:20px;flex:none;width:24px;text-align:center}
+  a.btn .sub{display:block;font-weight:400;font-size:12.5px;color:var(--muted);margin-top:2px}
+  a.btn.primary{justify-content:center;background:var(--ink);color:var(--bg)}
+  a.btn.primary::after{content:"";position:absolute;inset:0;background:var(--accent);transform:translateY(101%);
+    transition:transform .5s var(--ease);z-index:0}
+  a.btn.primary:hover{color:#fff;border-color:transparent}
+  a.btn.primary:hover::after{transform:translateY(0)}
+  a.btn.primary span{position:relative;z-index:1}
+  .foot{margin-top:28px;color:var(--faint);font-size:12.5px;line-height:1.8}
+  .foot a{color:var(--muted)}
 </style></head><body>
+<div class="halo"></div>
 <div class="card">
-  <div class="logo">♜</div>
+  <div class="logo"><svg viewBox="0 0 260 180"><path d="M130 40 C 96 74, 54 96, 8 100 C 60 108, 104 100, 130 74 C 156 100, 200 108, 252 100 C 206 96, 164 74, 130 40 Z"/><path d="M130 74 C 118 104, 108 132, 96 168 C 122 140, 130 112, 130 92 C 130 112, 138 140, 164 168 C 152 132, 142 104, 130 74 Z"/></svg></div>
   <h1>Falcon Web Studio</h1>
-  <div class="tag">Modern, affordable websites for local businesses</div>
-  <div class="pills"><span>✓ Live in days</span><span>✓ From £199</span><span>✓ UK-based</span></div>
+  <div class="tag">Beautiful, high-converting websites for local UK businesses</div>
+  <div class="pills"><span>✦ Live in days</span><span>✦ From £199</span><span>✦ UK-based</span></div>
 
   <a class="btn primary" href="mailto:info@falconhire.co.uk?subject=Free%20website%20mockup&body=Hi%2C%20please%20make%20me%20a%20free%20mockup.%20My%20business%20name%3A%20%0AWhat%20I%20do%3A%20%0ATown%3A%20%0AWebsite%20(if%20any)%3A%20">
     <span>✨ Get a FREE mockup of your website</span>
+  </a>
+
+  <a class="btn" href="https://falconhire.co.uk/">
+    <span class="ico">◆</span><span>See our work &amp; studio<span class="sub">Real sites we've designed — live &amp; interactive</span></span>
   </a>
 
   <a class="btn" href="https://buy.stripe.com/aFa00j3iabWU7fEagtcbC04">
     <span class="ico">🚀</span><span>Get your website built — £199<span class="sub">Live on your own domain within a few days</span></span>
   </a>
 
-  <a class="btn" href="mailto:info@falconhire.co.uk?subject=Website%20templates">
-    <span class="ico">🎨</span><span>DIY website templates<span class="sub">Edit it yourself — from £14</span></span>
-  </a>
-
   <a class="btn" href="mailto:info@falconhire.co.uk">
-    <span class="ico">✉️</span><span>Email us<span class="sub">info@falconhire.co.uk</span></span>
+    <span class="ico">✉</span><span>Email us<span class="sub">info@falconhire.co.uk</span></span>
   </a>
 
   <div class="foot">Falcon Web Studio · Leamington Spa, UK<br>Payments handled securely by Stripe (billed as VanGuard).</div>
