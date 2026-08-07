@@ -16,7 +16,8 @@
   .phone{position:relative;flex:1;width:100%;max-width:360px;margin:0 auto;
     border-radius:34px 34px 0 0;overflow:hidden;border:8px solid #1b2735;border-bottom:none;
     box-shadow:0 -10px 60px rgba(0,0,0,.5),0 0 0 2px rgba(255,255,255,.05)}
-  .phone iframe{width:100%;height:100%;border:0;display:block;background:#fff}
+  .phone .track{position:absolute;top:0;left:0;width:100%;will-change:transform}
+  .phone iframe{width:100%;border:0;display:block;background:#fff}
   .cta{position:fixed;left:0;right:0;bottom:0;z-index:5;text-align:center;padding:16px 16px 26px;
     background:linear-gradient(0deg,#0a121a 55%,transparent);color:#fff}
   .cta .big{font-weight:700;font-size:clamp(17px,4.6vw,22px)}
@@ -26,7 +27,7 @@
 </style></head><body>
 <div class="stage">
   <div class="hook" id="hook">Loading…</div>
-  <div class="phone"><iframe id="site" src="about:blank"></iframe></div>
+  <div class="phone" id="phone"><div class="track" id="track"><iframe id="site" src="about:blank"></iframe></div></div>
 </div>
 <div class="cta">
   <div class="big">✨ Free mockup of <b>YOUR</b> website</div>
@@ -39,30 +40,33 @@
   document.getElementById('hook').textContent=hook;
   var ifr=document.getElementById('site');
   ifr.src='/demo/'+site+'/';
-  // Scroll duration in seconds — tune with ?dur=  (default 22s = slow & readable)
+  // Scroll duration in seconds — tune with ?dur=  (default 8s)
   var DUR=(parseFloat(q.get('dur'))||8)*1000;
+  var track=document.getElementById('track'), phone=document.getElementById('phone');
   ifr.onload=function(){
     try{
-      var win=ifr.contentWindow, doc=ifr.contentDocument;
-      // The mockup sets scroll-behavior:smooth — that fights our per-frame
-      // scrollTo and causes lurching. Force instant so our motion is even.
-      doc.documentElement.style.scrollBehavior='auto';
-      if(doc.body)doc.body.style.scrollBehavior='auto';
-      function maxScroll(){return Math.max(0, Math.max(doc.body.scrollHeight, doc.documentElement.scrollHeight) - win.innerHeight);}
-      function loop(){
-        var start=null, to=maxScroll(); // measured now — after content has settled
-        function step(ts){
-          if(!start)start=ts;
-          var p=Math.min(1,(ts-start)/DUR);
-          var e=p; // linear — constant scroll speed
-          win.scrollTo(0,to*e);
-          if(p<1)requestAnimationFrame(step);
-          else setTimeout(function(){win.scrollTo(0,0);setTimeout(loop,1400);},2200); // hold at bottom, reset, loop
+      var doc=ifr.contentDocument;
+      function fullHeight(){return Math.max(doc.body.scrollHeight, doc.documentElement.scrollHeight);}
+      function begin(){
+        // Render the ENTIRE page (no internal scroll) then slide it up with a
+        // CSS transform — GPU-smooth, constant speed, zoom-independent.
+        var full=fullHeight();
+        ifr.style.height=full+'px';
+        var dist=Math.max(0, full - phone.clientHeight);
+        function loop(){
+          var start=null;
+          function step(ts){
+            if(!start)start=ts;
+            var p=Math.min(1,(ts-start)/DUR); // linear
+            track.style.transform='translate3d(0,'+(-dist*p)+'px,0)';
+            if(p<1)requestAnimationFrame(step);
+            else setTimeout(function(){track.style.transform='translate3d(0,0,0)';setTimeout(loop,1400);},2200);
+          }
+          requestAnimationFrame(step);
         }
-        requestAnimationFrame(step);
+        setTimeout(loop, 2600); // hold at top so the hook reads
       }
-      // wait for fonts/images to settle so the full height is measured, hold at top
-      setTimeout(loop, 2800);
+      setTimeout(begin, 600); // let fonts/images settle before measuring height
     }catch(e){}
   };
 </script>
