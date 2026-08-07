@@ -50,7 +50,7 @@
         function step(ts){
           if(!start)start=ts;
           var p=Math.min(1,(ts-start)/DUR);
-          var e=p<.5?2*p*p:1-Math.pow(-2*p+2,2)/2; // ease in-out
+          var e=p; // linear — constant scroll speed
           win.scrollTo(0,to*e);
           if(p<1)requestAnimationFrame(step);
           else setTimeout(function(){win.scrollTo(0,0);setTimeout(loop,1400);},2200); // hold at bottom, reset, loop
