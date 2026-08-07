@@ -39,21 +39,23 @@
   document.getElementById('hook').textContent=hook;
   var ifr=document.getElementById('site');
   ifr.src='/demo/'+site+'/';
+  // Scroll duration in seconds — tune with ?dur=  (default 22s = slow & readable)
+  var DUR=(parseFloat(q.get('dur'))||22)*1000;
   ifr.onload=function(){
     try{
       var win=ifr.contentWindow, doc=ifr.contentDocument;
       function maxScroll(){return Math.max(0, doc.documentElement.scrollHeight - win.innerHeight);}
       function run(){
-        var dur=8200, start=null, to=maxScroll();
+        var start=null, to=maxScroll();
         function step(ts){
           if(!start)start=ts;
-          var p=Math.min(1,(ts-start)/dur);
-          var e=p<.5?2*p*p:1-Math.pow(-2*p+2,2)/2;
+          var p=Math.min(1,(ts-start)/DUR);
+          var e=p<.5?2*p*p:1-Math.pow(-2*p+2,2)/2; // ease in-out
           win.scrollTo(0,to*e);
           if(p<1)requestAnimationFrame(step);
-          else setTimeout(function(){win.scrollTo(0,0);setTimeout(run,1200);},1600);
+          else setTimeout(function(){win.scrollTo(0,0);setTimeout(run,1400);},2200); // hold at bottom, reset, loop
         }
-        setTimeout(function(){requestAnimationFrame(step);},1900);
+        setTimeout(function(){requestAnimationFrame(step);},2600); // hold at top so the hook reads
       }
       run();
     }catch(e){}
