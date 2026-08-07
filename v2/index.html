@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en-GB"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Falcon Web Studio — Websites that make local businesses look world-class</title>
+<meta name="description" content="A UK web studio building fast, beautiful, high-converting websites for local businesses. See a free mockup of your site before you pay a penny.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b0a0d; --bg2:#111014; --panel:#16151a; --line:rgba(255,255,255,.10);
+    --ink:#f5f1ea; --muted:#9b958c; --faint:#6a655e;
+    --accent:#ff5a30; --accent-soft:#ffb499; --gold:#e7b063;
+    --serif:'Fraunces',Georgia,serif; --sans:'Manrope',system-ui,sans-serif;
+    --ease:cubic-bezier(.19,1,.22,1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  ::selection{background:var(--accent);color:#fff}
+  a{color:inherit;text-decoration:none}
+  .wrap{width:min(1240px,92vw);margin:0 auto}
+  /* film grain for depth */
+  body::before{content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.04;mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+  /* ---------- nav ---------- */
+  header{position:fixed;top:0;left:0;right:0;z-index:100;transition:.5s var(--ease)}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:26px 0;transition:.4s var(--ease)}
+  header.scrolled{background:rgba(11,10,13,.72);backdrop-filter:blur(16px) saturate(140%);border-bottom:1px solid var(--line)}
+  header.scrolled .nav{padding:15px 0}
+  .brand{display:flex;align-items:center;gap:12px;font-family:var(--serif);font-weight:600;font-size:21px;letter-spacing:-.01em}
+  .brand svg{width:30px;height:22px;fill:var(--accent)}
+  .menu{display:flex;gap:38px;align-items:center}
+  .menu a{font-size:14.5px;color:var(--muted);font-weight:500;transition:color .3s}
+  .menu a:hover{color:var(--ink)}
+  .menu a.pill{color:var(--ink);border:1px solid var(--line);padding:11px 20px;border-radius:100px;transition:.35s var(--ease)}
+  .menu a.pill:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+  @media(max-width:760px){.menu a:not(.pill){display:none}}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;padding:190px 0 90px;overflow:hidden}
+  .halo{position:absolute;top:-14%;right:-8%;width:60vw;height:60vw;max-width:820px;max-height:820px;z-index:-1;
+    background:radial-gradient(circle at 50% 50%,rgba(255,90,48,.30),rgba(255,90,48,.06) 42%,transparent 66%);filter:blur(10px)}
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:30px}
+  .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(255,90,48,.18)}
+  h1{font-family:var(--serif);font-weight:400;font-size:clamp(44px,7.4vw,104px);line-height:.98;letter-spacing:-.03em;max-width:15ch}
+  h1 em{font-style:italic;color:var(--accent);font-weight:500}
+  .lede{max-width:52ch;margin:34px 0 40px;font-size:clamp(17px,1.5vw,20px);color:var(--muted)}
+  .cta-row{display:flex;align-items:center;gap:26px;flex-wrap:wrap}
+  .btn{position:relative;display:inline-flex;align-items:center;gap:12px;background:var(--ink);color:var(--bg);
+    font-weight:600;font-size:15.5px;padding:17px 30px;border-radius:100px;overflow:hidden;transition:transform .5s var(--ease),color .5s}
+  .btn span{position:relative;z-index:1}
+  .btn::after{content:"";position:absolute;inset:0;background:var(--accent);transform:translateY(101%);transition:transform .5s var(--ease);z-index:0}
+  .btn:hover{color:#fff;transform:translateY(-2px)}
+  .btn:hover::after{transform:translateY(0)}
+  .link-arrow{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:15.5px;color:var(--ink)}
+  .link-arrow .a{transition:transform .4s var(--ease)}
+  .link-arrow:hover .a{transform:translateX(6px)}
+  .hero-meta{display:flex;gap:44px;margin-top:78px;flex-wrap:wrap}
+  .hero-meta .m .n{font-family:var(--serif);font-size:38px;line-height:1;letter-spacing:-.02em}
+  .hero-meta .m .l{font-size:13px;color:var(--faint);margin-top:8px;letter-spacing:.02em}
+  .hero-meta .m .n b{color:var(--accent);font-weight:500}
+
+  /* ---------- marquee ---------- */
+  .marq{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:26px 0;margin-top:90px;overflow:hidden;white-space:nowrap;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+  .marq .row{display:inline-flex;gap:56px;animation:slide 34s linear infinite}
+  .marq .row span{font-family:var(--serif);font-size:22px;color:var(--faint);display:inline-flex;align-items:center;gap:56px}
+  .marq .row span::after{content:"✦";color:var(--accent);font-size:13px}
+  @keyframes slide{to{transform:translateX(-50%)}}
+
+  /* ---------- section frame ---------- */
+  section{position:relative;padding:120px 0}
+  .kicker{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:20px;display:flex;align-items:center;gap:12px}
+  .kicker::before{content:"";width:26px;height:1px;background:var(--accent)}
+  h2{font-family:var(--serif);font-weight:400;font-size:clamp(32px,4.6vw,58px);line-height:1.02;letter-spacing:-.025em;max-width:18ch}
+  h2 em{font-style:italic;color:var(--accent);font-weight:500}
+  .section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:64px;flex-wrap:wrap}
+  .section-head p{max-width:38ch;color:var(--muted)}
+
+  /* ---------- work ---------- */
+  .works{display:grid;gap:80px}
+  .work{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+  .work:nth-child(even){grid-template-columns:.85fr 1.15fr}
+  .work:nth-child(even) .work-txt{order:2}
+  .frame{position:relative;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:#0e0d11;
+    box-shadow:0 40px 80px -30px rgba(0,0,0,.8);transition:transform .7s var(--ease),box-shadow .7s var(--ease)}
+  .work:hover .frame{transform:translateY(-8px);box-shadow:0 60px 120px -40px rgba(0,0,0,.9)}
+  .frame .bar{display:flex;align-items:center;gap:7px;padding:12px 15px;background:#141317;border-bottom:1px solid var(--line)}
+  .frame .bar i{width:10px;height:10px;border-radius:50%;background:#33313a}
+  .frame .bar .url{margin-left:14px;font-size:11.5px;color:var(--faint);background:#0d0c10;padding:5px 14px;border-radius:6px}
+  .frame .view{aspect-ratio:16/11;overflow:hidden;position:relative}
+  .frame iframe{position:absolute;top:0;left:0;width:1280px;height:880px;border:0;transform:scale(.435);transform-origin:top left;pointer-events:none}
+  .work-txt .no{font-family:var(--serif);font-size:15px;color:var(--accent);letter-spacing:.05em}
+  .work-txt h3{font-family:var(--serif);font-weight:400;font-size:clamp(26px,3vw,36px);letter-spacing:-.02em;margin:14px 0 16px;line-height:1.05}
+  .work-txt p{color:var(--muted);max-width:40ch;margin-bottom:22px}
+  .tags{display:flex;gap:10px;flex-wrap:wrap}
+  .tags b{font-weight:500;font-size:12.5px;color:var(--muted);border:1px solid var(--line);padding:7px 14px;border-radius:100px}
+
+  /* ---------- services ---------- */
+  .services{border-top:1px solid var(--line)}
+  .srow{display:grid;grid-template-columns:70px 1fr auto;gap:30px;align-items:center;padding:34px 6px;border-bottom:1px solid var(--line);transition:.5s var(--ease);cursor:default}
+  .srow:hover{padding-left:22px;background:linear-gradient(90deg,rgba(255,90,48,.05),transparent 60%)}
+  .srow .idx{font-family:var(--serif);font-size:16px;color:var(--faint)}
+  .srow h3{font-family:var(--serif);font-weight:400;font-size:clamp(22px,2.6vw,30px);letter-spacing:-.02em}
+  .srow p{grid-column:2;color:var(--muted);font-size:15px;max-width:52ch;margin-top:6px}
+  .srow .arw{color:var(--faint);font-size:22px;transition:.5s var(--ease)}
+  .srow:hover .arw{color:var(--accent);transform:translateX(6px)}
+
+  /* ---------- process ---------- */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--line);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+  .step{background:var(--bg);padding:46px 38px;transition:background .5s}
+  .step:hover{background:var(--bg2)}
+  .step .s{font-family:var(--serif);font-size:15px;color:var(--accent)}
+  .step h3{font-family:var(--serif);font-weight:400;font-size:27px;letter-spacing:-.02em;margin:18px 0 12px}
+  .step p{color:var(--muted);font-size:15px}
+  @media(max-width:820px){.steps{grid-template-columns:1fr}.work,.work:nth-child(even){grid-template-columns:1fr}.work:nth-child(even) .work-txt{order:0}}
+
+  /* ---------- pricing ---------- */
+  .prices{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .price{border:1px solid var(--line);border-radius:20px;padding:38px 32px;background:var(--bg2);transition:.6s var(--ease)}
+  .price:hover{transform:translateY(-6px);border-color:rgba(255,90,48,.4)}
+  .price.feat{background:linear-gradient(180deg,rgba(255,90,48,.12),transparent 60%);border-color:rgba(255,90,48,.4)}
+  .price .tier{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .price .amt{font-family:var(--serif);font-size:52px;letter-spacing:-.03em;margin:16px 0 4px}
+  .price .amt small{font-size:16px;color:var(--muted);font-family:var(--sans)}
+  .price ul{list-style:none;margin:24px 0 30px}
+  .price li{padding:10px 0 10px 26px;position:relative;font-size:15px;color:var(--muted);border-top:1px solid var(--line)}
+  .price li::before{content:"";position:absolute;left:0;top:17px;width:11px;height:6px;border-left:1.5px solid var(--accent);border-bottom:1.5px solid var(--accent);transform:rotate(-45deg)}
+  .price .btn{width:100%;justify-content:center}
+  @media(max-width:820px){.prices{grid-template-columns:1fr}}
+
+  /* ---------- statement ---------- */
+  .statement{text-align:center}
+  .statement h2{font-size:clamp(30px,5.2vw,72px);max-width:20ch;margin:0 auto;line-height:1.04}
+  .statement .by{margin-top:34px;color:var(--muted);font-size:15px}
+
+  /* ---------- final cta ---------- */
+  .final{position:relative;text-align:center;padding:150px 0;overflow:hidden}
+  .final .halo{top:auto;bottom:-30%;left:50%;transform:translateX(-50%);right:auto;width:80vw}
+  .final h2{margin:0 auto 30px}
+
+  /* ---------- footer ---------- */
+  footer{border-top:1px solid var(--line);padding:70px 0 40px}
+  .foot-top{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;align-items:flex-start}
+  .foot-word{font-family:var(--serif);font-size:clamp(40px,9vw,120px);line-height:.9;letter-spacing:-.03em;color:var(--panel);
+    -webkit-text-stroke:1px var(--line);margin-top:50px}
+  .foot-links{display:flex;gap:60px;flex-wrap:wrap}
+  .foot-links .col h4{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin-bottom:16px}
+  .foot-links .col a{display:block;color:var(--muted);font-size:15px;padding:5px 0;transition:color .3s}
+  .foot-links .col a:hover{color:var(--accent)}
+  .foot-bot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;color:var(--faint);font-size:13px;margin-top:20px}
+
+  /* reveal */
+  .rv{opacity:0;transform:translateY(30px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+  .rv.in{opacity:1;transform:none}
+</style></head><body>
+
+<header id="hd"><div class="wrap nav">
+  <a class="brand" href="#top"><svg viewBox="0 0 260 180"><path d="M130 40 C 96 74, 54 96, 8 100 C 60 108, 104 100, 130 74 C 156 100, 200 108, 252 100 C 206 96, 164 74, 130 40 Z"/><path d="M130 74 C 118 104, 108 132, 96 168 C 122 140, 130 112, 130 92 C 130 112, 138 140, 164 168 C 152 132, 142 104, 130 74 Z"/></svg>Falcon</a>
+  <nav class="menu">
+    <a href="#work">Work</a><a href="#services">Services</a><a href="#pricing">Pricing</a>
+    <a class="pill" href="mailto:info@falconhire.co.uk?subject=Free%20website%20mockup">Free mockup</a>
+  </nav>
+</div></header>
+
+<main id="top">
+  <section class="hero"><div class="halo"></div><div class="wrap">
+    <div class="eyebrow rv"><span class="dot"></span>UK Web Studio · Est. 2026</div>
+    <h1 class="rv">Make your business look like the <em>best in town.</em></h1>
+    <p class="lede rv">We design fast, beautiful websites that turn local searches into paying customers — and we'll build you a free mockup before you spend a penny.</p>
+    <div class="cta-row rv">
+      <a class="btn" href="mailto:info@falconhire.co.uk?subject=Free%20website%20mockup"><span>Get your free mockup</span></a>
+      <a class="link-arrow" href="#work">See the work <span class="a">→</span></a>
+    </div>
+    <div class="hero-meta rv">
+      <div class="m"><div class="n"><b>3</b> days</div><div class="l">Typical turnaround</div></div>
+      <div class="m"><div class="n">£199</div><div class="l">Starting price</div></div>
+      <div class="m"><div class="n">100%</div><div class="l">Mobile-first, built to convert</div></div>
+    </div>
+  </div></section>
+
+  <div class="marq"><div class="row">
+    <span>Dog groomers<span></span>Window cleaners</span><span>Plasterers</span><span>Beauty salons</span><span>Tree surgeons</span><span>Barbers</span><span>Handymen</span><span>Cleaners</span>
+    <span>Dog groomers</span><span>Window cleaners</span><span>Plasterers</span><span>Beauty salons</span><span>Tree surgeons</span><span>Barbers</span><span>Handymen</span><span>Cleaners</span>
+  </div></div>
+
+  <section id="work"><div class="wrap">
+    <div class="section-head">
+      <div><div class="kicker rv">Selected work</div><h2 class="rv">Real sites, built to <em>win the click.</em></h2></div>
+      <p class="rv">Every project starts as a free concept. Here are a few, live and interactive.</p>
+    </div>
+    <div class="works">
+      <article class="work rv">
+        <div class="frame"><div class="bar"><i></i><i></i><i></i><span class="url">bloombeauty.co.uk</span></div><div class="view"><iframe loading="lazy" src="/demo/bloom-beauty-studio/"></iframe></div></div>
+        <div class="work-txt"><div class="no">01 — Beauty & Salon</div><h3>Bloom Beauty Studio</h3><p>A calm, premium feel that puts treatments and bookings front and centre — the kind of site that makes a salon look fully booked.</p><div class="tags"><b>Design</b><b>Mobile-first</b><b>Bookings</b></div></div>
+      </article>
+      <article class="work rv">
+        <div class="frame"><div class="bar"><i></i><i></i><i></i><span class="url">oakwelltreecare.co.uk</span></div><div class="view"><iframe loading="lazy" src="/demo/oakwell-tree-care/"></iframe></div></div>
+        <div class="work-txt"><div class="no">02 — Trades</div><h3>Oakwell Tree Care</h3><p>Rugged, trustworthy and quote-driven. Built so a homeowner can go from Google to "get a quote" in two taps.</p><div class="tags"><b>Design</b><b>Local SEO</b><b>Lead-gen</b></div></div>
+      </article>
+      <article class="work rv">
+        <div class="frame"><div class="bar"><i></i><i></i><i></i><span class="url">pawsandwhiskers.co.uk</span></div><div class="view"><iframe loading="lazy" src="/demo/paws-and-whiskers-grooming/"></iframe></div></div>
+        <div class="work-txt"><div class="no">03 — Pet Services</div><h3>Paws &amp; Whiskers Grooming</h3><p>Warm and friendly, with the phone number never more than a thumb away. Made to turn happy reviews into new bookings.</p><div class="tags"><b>Design</b><b>Click-to-call</b><b>Reviews</b></div></div>
+      </article>
+    </div>
+  </div></section>
+
+  <section id="services" class="services"><div class="wrap">
+    <div class="section-head">
+      <div><div class="kicker rv">What we do</div><h2 class="rv">Everything, handled by <em>one studio.</em></h2></div>
+      <p class="rv">No agencies, no jargon, no monthly lock-in. Just a great website, done properly.</p>
+    </div>
+    <div class="srlist">
+      <div class="srow rv"><span class="idx">01</span><div><h3>Website design &amp; build</h3><p>Bespoke, hand-finished sites that look premium and load in a blink.</p></div><span class="arw">→</span></div>
+      <div class="srow rv"><span class="idx">02</span><div><h3>Mobile-first &amp; conversion</h3><p>Designed where your customers actually are, and built to turn visits into enquiries.</p></div><span class="arw">→</span></div>
+      <div class="srow rv"><span class="idx">03</span><div><h3>Local SEO foundations</h3><p>Set up to be found on Google for your trade and your town.</p></div><span class="arw">→</span></div>
+      <div class="srow rv"><span class="idx">04</span><div><h3>Domain, hosting &amp; care</h3><p>We handle the technical side and keep it fast, secure and up to date.</p></div><span class="arw">→</span></div>
+    </div>
+  </div></section>
+
+  <section><div class="wrap">
+    <div class="section-head"><div><div class="kicker rv">How it works</div><h2 class="rv">From idea to live in <em>three steps.</em></h2></div></div>
+    <div class="steps">
+      <div class="step rv"><div class="s">01</div><h3>Free mockup</h3><p>Tell us your business and we build a real concept — no cost, no obligation, yours to keep.</p></div>
+      <div class="step rv"><div class="s">02</div><h3>You approve</h3><p>Love it? We add your photos and words and polish every pixel until it's right.</p></div>
+      <div class="step rv"><div class="s">03</div><h3>Live in days</h3><p>We launch it on your own domain and keep it running beautifully.</p></div>
+    </div>
+  </div></section>
+
+  <section id="pricing"><div class="wrap">
+    <div class="section-head"><div><div class="kicker rv">Pricing</div><h2 class="rv">Honest prices, <em>no surprises.</em></h2></div><p class="rv">Pay once for the build. Optional hosting &amp; care from £15/mo.</p></div>
+    <div class="prices">
+      <div class="price rv"><div class="tier">Landing page</div><div class="amt">£199</div><ul><li>Single-page website</li><li>Mobile-first design</li><li>Enquiry form &amp; click-to-call</li><li>Live on your own domain</li></ul><a class="btn" href="https://buy.stripe.com/aFa00j3iabWU7fEagtcbC04"><span>Get started</span></a></div>
+      <div class="price feat rv"><div class="tier">Most popular</div><div class="amt">£399</div><ul><li>3–5 page website</li><li>Everything in Landing</li><li>Gallery, map &amp; content</li><li>Basic SEO set-up</li></ul><a class="btn" href="https://buy.stripe.com/8x28wPaKC5yw2ZofANcbC05"><span>Get started</span></a></div>
+      <div class="price rv"><div class="tier">Not sure yet?</div><div class="amt">Free<small> mockup</small></div><ul><li>See it before you pay</li><li>Built from your details</li><li>No obligation</li><li>Yours to keep</li></ul><a class="btn" href="mailto:info@falconhire.co.uk?subject=Free%20website%20mockup"><span>Request one</span></a></div>
+    </div>
+  </div></section>
+
+  <section class="statement"><div class="wrap">
+    <h2 class="rv">"A website should work as hard as you do — and look twice as good."</h2>
+    <div class="by rv">— the whole reason Falcon exists</div>
+  </div></section>
+
+  <section class="final"><div class="halo"></div><div class="wrap">
+    <div class="kicker rv" style="justify-content:center">Let's build</div>
+    <h2 class="rv" style="font-size:clamp(34px,6vw,80px)">Your free mockup is <em>one email away.</em></h2>
+    <div class="cta-row rv" style="justify-content:center;margin-top:14px">
+      <a class="btn" href="mailto:info@falconhire.co.uk?subject=Free%20website%20mockup"><span>Get your free mockup</span></a>
+    </div>
+  </div></section>
+</main>
+
+<footer><div class="wrap">
+  <div class="foot-top">
+    <a class="brand" href="#top"><svg viewBox="0 0 260 180"><path d="M130 40 C 96 74, 54 96, 8 100 C 60 108, 104 100, 130 74 C 156 100, 200 108, 252 100 C 206 96, 164 74, 130 40 Z"/><path d="M130 74 C 118 104, 108 132, 96 168 C 122 140, 130 112, 130 92 C 130 112, 138 140, 164 168 C 152 132, 142 104, 130 74 Z"/></svg>Falcon Web Studio</a>
+    <div class="foot-links">
+      <div class="col"><h4>Studio</h4><a href="#work">Work</a><a href="#services">Services</a><a href="#pricing">Pricing</a></div>
+      <div class="col"><h4>Start</h4><a href="mailto:info@falconhire.co.uk?subject=Free%20website%20mockup">Free mockup</a><a href="https://buy.stripe.com/aFa00j3iabWU7fEagtcbC04">Book a build</a></div>
+      <div class="col"><h4>Contact</h4><a href="mailto:info@falconhire.co.uk">info@falconhire.co.uk</a><a href="#top">Leamington Spa, UK</a></div>
+    </div>
+  </div>
+  <div class="foot-word">FALCON</div>
+  <div class="foot-bot"><span>© 2026 Falcon Web Studio · 15 Lillington Road, Leamington Spa, CV32 5YS</span><span>Payments via Stripe (billed as VanGuard)</span></div>
+</div></footer>
+
+<script>
+  var hd=document.getElementById('hd');
+  addEventListener('scroll',function(){hd.classList.toggle('scrolled',scrollY>24)},{passive:true});
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.14});
+  document.querySelectorAll('.rv').forEach(function(el,i){el.style.transitionDelay=(i%3*70)+'ms';io.observe(el)});
+</script>
+</body></html>
