@@ -38,7 +38,8 @@
     background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:17px 20px;margin-bottom:12px;
     font-weight:600;font-size:15.5px;overflow:hidden;transition:transform .4s var(--ease),border-color .4s,background .4s}
   a.btn:hover{transform:translateY(-3px);border-color:rgba(255,90,48,.45);background:#17151b}
-  a.btn .ico{font-size:20px;flex:none;width:24px;text-align:center}
+  a.btn .ico{flex:none;width:22px;height:22px;display:grid;place-items:center;color:var(--accent)}
+  a.btn .ico svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
   a.btn .sub{display:block;font-weight:400;font-size:12.5px;color:var(--muted);margin-top:2px}
   a.btn.primary{justify-content:center;background:var(--ink);color:var(--bg)}
   a.btn.primary::after{content:"";position:absolute;inset:0;background:var(--accent);transform:translateY(101%);
@@ -54,22 +55,22 @@
   <div class="logo"><svg viewBox="0 0 260 180"><path d="M130 40 C 96 74, 54 96, 8 100 C 60 108, 104 100, 130 74 C 156 100, 200 108, 252 100 C 206 96, 164 74, 130 40 Z"/><path d="M130 74 C 118 104, 108 132, 96 168 C 122 140, 130 112, 130 92 C 130 112, 138 140, 164 168 C 152 132, 142 104, 130 74 Z"/></svg></div>
   <h1>Falcon Web Studio</h1>
   <div class="tag">Beautiful, high-converting websites for local UK businesses</div>
-  <div class="pills"><span>✦ Live in days</span><span>✦ From £199</span><span>✦ UK-based</span></div>
+  <div class="pills"><span>Live in days</span><span>From £199</span><span>UK-based</span></div>
 
   <a class="btn primary" href="mailto:info@falconhire.co.uk?subject=Free%20website%20mockup&body=Hi%2C%20please%20make%20me%20a%20free%20mockup.%20My%20business%20name%3A%20%0AWhat%20I%20do%3A%20%0ATown%3A%20%0AWebsite%20(if%20any)%3A%20">
-    <span>✨ Get a FREE mockup of your website</span>
+    <span>Get a free mockup of your website</span>
   </a>
 
   <a class="btn" href="https://falconhire.co.uk/">
-    <span class="ico">◆</span><span>See our work &amp; studio<span class="sub">Real sites we've designed — live &amp; interactive</span></span>
+    <span class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 8h18M8 21h8"/></svg></span><span>See our work &amp; studio<span class="sub">Real sites we've designed — live &amp; interactive</span></span>
   </a>
 
   <a class="btn" href="https://buy.stripe.com/aFa00j3iabWU7fEagtcbC04">
-    <span class="ico">🚀</span><span>Get your website built — £199<span class="sub">Live on your own domain within a few days</span></span>
+    <span class="ico"><svg viewBox="0 0 24 24"><path d="M13 3L5 13h6l-1 8 8-10h-6z"/></svg></span><span>Get your website built — £199<span class="sub">Live on your own domain within a few days</span></span>
   </a>
 
   <a class="btn" href="mailto:info@falconhire.co.uk">
-    <span class="ico">✉</span><span>Email us<span class="sub">info@falconhire.co.uk</span></span>
+    <span class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><span>Email us<span class="sub">info@falconhire.co.uk</span></span>
   </a>
 
   <div class="foot">Falcon Web Studio · Leamington Spa, UK<br>Payments handled securely by Stripe (billed as VanGuard).</div>

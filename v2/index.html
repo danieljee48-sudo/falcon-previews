@@ -36,11 +36,27 @@
   .menu a.pill{color:var(--ink);border:1px solid var(--line);padding:11px 20px;border-radius:100px;transition:.35s var(--ease)}
   .menu a.pill:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
   @media(max-width:760px){.menu a:not(.pill){display:none}}
+  /* mobile nav */
+  .burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:9px;margin-left:14px;z-index:120}
+  .burger i{width:24px;height:2px;background:var(--ink);border-radius:2px;transition:.4s var(--ease)}
+  .mobile-menu{position:fixed;inset:0;z-index:110;background:rgba(11,10,13,.97);backdrop-filter:blur(18px);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;
+    opacity:0;pointer-events:none;transition:opacity .45s var(--ease)}
+  .mobile-menu a{font-family:var(--serif);font-size:32px;color:var(--muted);transition:color .3s}
+  .mobile-menu a:active,.mobile-menu a:hover{color:var(--accent)}
+  body.mopen{overflow:hidden}
+  body.mopen .mobile-menu{opacity:1;pointer-events:auto}
+  body.mopen .burger i:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  body.mopen .burger i:nth-child(2){opacity:0}
+  body.mopen .burger i:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  @media(max-width:760px){.burger{display:flex}}
+  @media(min-width:761px){.mobile-menu{display:none}}
 
   /* ---------- hero ---------- */
   .hero{position:relative;padding:190px 0 90px;overflow:hidden}
-  .halo{position:absolute;top:-14%;right:-8%;width:60vw;height:60vw;max-width:820px;max-height:820px;z-index:-1;
-    background:radial-gradient(circle at 50% 50%,rgba(255,90,48,.30),rgba(255,90,48,.06) 42%,transparent 66%);filter:blur(10px)}
+  .halo{position:absolute;top:-16%;right:-10%;width:64vw;height:60vw;max-width:860px;max-height:760px;z-index:-1;
+    background:radial-gradient(58% 50% at 62% 38%,rgba(255,90,48,.30),rgba(255,90,48,.05) 60%,transparent 74%);
+    mix-blend-mode:screen;filter:blur(36px);will-change:transform;transition:transform .6s var(--ease)}
   .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:30px}
   .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(255,90,48,.18)}
   h1{font-family:var(--serif);font-weight:400;font-size:clamp(44px,7.4vw,104px);line-height:.98;letter-spacing:-.03em;max-width:15ch}
@@ -69,7 +85,7 @@
   @keyframes slide{to{transform:translateX(-50%)}}
 
   /* ---------- section frame ---------- */
-  section{position:relative;padding:94px 0}
+  section{position:relative;padding:clamp(56px,11vw,94px) 0}
   .kicker{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:20px;display:flex;align-items:center;gap:12px}
   .kicker::before{content:"";width:26px;height:1px;background:var(--accent)}
   h2{font-family:var(--serif);font-weight:400;font-size:clamp(32px,4.6vw,58px);line-height:1.02;letter-spacing:-.025em;max-width:18ch}
@@ -121,8 +137,8 @@
   .price:hover{transform:translateY(-6px);border-color:rgba(255,90,48,.4)}
   .price.feat{background:linear-gradient(180deg,rgba(255,90,48,.12),transparent 60%);border-color:rgba(255,90,48,.4)}
   .price .tier{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-  .price .amt{font-family:var(--serif);font-size:52px;letter-spacing:-.03em;margin:16px 0 4px}
-  .price .amt small{font-size:16px;color:var(--muted);font-family:var(--sans)}
+  .price .amt{font-family:var(--serif);font-size:52px;letter-spacing:-.03em;margin:16px 0 0}
+  .price .amt-note{font-size:14px;color:var(--muted);letter-spacing:.02em;margin:2px 0 4px}
   .price ul{list-style:none;margin:24px 0 30px}
   .price li{padding:10px 0 10px 26px;position:relative;font-size:15px;color:var(--muted);border-top:1px solid var(--line)}
   .price li::before{content:"";position:absolute;left:0;top:17px;width:11px;height:6px;border-left:1.5px solid var(--accent);border-bottom:1.5px solid var(--accent);transform:rotate(-45deg)}
@@ -163,7 +179,12 @@
     <a href="#work">Work</a><a href="#services">Services</a><a href="#pricing">Pricing</a>
     <a class="pill" href="mailto:info@falconhire.co.uk?subject=Free%20website%20mockup">Free mockup</a>
   </nav>
+  <button class="burger" id="bg" aria-label="Menu" aria-expanded="false"><i></i><i></i><i></i></button>
 </div></header>
+<nav class="mobile-menu" id="mm">
+  <a href="#work">Work</a><a href="#services">Services</a><a href="#pricing">Pricing</a>
+  <a href="mailto:info@falconhire.co.uk?subject=Free%20website%20mockup">Free mockup</a>
+</nav>
 
 <main id="top">
   <section class="hero"><div class="halo"></div><div class="wrap">
@@ -234,7 +255,7 @@
     <div class="prices">
       <div class="price rv"><div class="tier">Landing page</div><div class="amt">£199</div><ul><li>Single-page website</li><li>Mobile-first design</li><li>Enquiry form &amp; click-to-call</li><li>Live on your own domain</li></ul><a class="btn" href="https://buy.stripe.com/aFa00j3iabWU7fEagtcbC04"><span>Get started</span></a></div>
       <div class="price feat rv"><div class="tier">Most popular</div><div class="amt">£399</div><ul><li>3–5 page website</li><li>Everything in Landing</li><li>Gallery, map &amp; content</li><li>Basic SEO set-up</li></ul><a class="btn" href="https://buy.stripe.com/8x28wPaKC5yw2ZofANcbC05"><span>Get started</span></a></div>
-      <div class="price rv"><div class="tier">Not sure yet?</div><div class="amt">Free<small> mockup</small></div><ul><li>See it before you pay</li><li>Built from your details</li><li>No obligation</li><li>Yours to keep</li></ul><a class="btn" href="mailto:info@falconhire.co.uk?subject=Free%20website%20mockup"><span>Request one</span></a></div>
+      <div class="price rv"><div class="tier">Not sure yet?</div><div class="amt">Free</div><div class="amt-note">mockup, no obligation</div><ul><li>See it before you pay</li><li>Built from your details</li><li>No obligation</li><li>Yours to keep</li></ul><a class="btn" href="mailto:info@falconhire.co.uk?subject=Free%20website%20mockup"><span>Request one</span></a></div>
     </div>
   </div></section>
 
@@ -271,6 +292,19 @@
 <script>
   var hd=document.getElementById('hd');
   addEventListener('scroll',function(){hd.classList.toggle('scrolled',scrollY>24)},{passive:true});
+  // mobile menu
+  var bg=document.getElementById('bg'),mm=document.getElementById('mm');
+  function closeM(){document.body.classList.remove('mopen');bg.setAttribute('aria-expanded','false')}
+  bg.addEventListener('click',function(){var o=document.body.classList.toggle('mopen');bg.setAttribute('aria-expanded',o)});
+  mm.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeM)});
+  // signature: cursor-follow hero glow (fine pointers only)
+  var halo=document.querySelector('.hero .halo');
+  if(halo&&matchMedia('(pointer:fine)').matches){
+    addEventListener('mousemove',function(e){
+      var x=(e.clientX/innerWidth-.5),y=(e.clientY/innerHeight-.5);
+      halo.style.transform='translate('+(x*46).toFixed(1)+'px,'+(y*40).toFixed(1)+'px)';
+    },{passive:true});
+  }
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.14});
   document.querySelectorAll('.rv').forEach(function(el,i){el.style.transitionDelay=(i%3*70)+'ms';io.observe(el)});
   // Scale each live-work iframe to fill its frame exactly (top-cropped, no scrollbars)
