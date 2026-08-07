@@ -278,7 +278,7 @@
     });
   }
   addEventListener('resize',fitFrames);
-  document.querySelectorAll('.frame iframe').forEach(function(f){f.addEventListener('load',fitFrames)});
+  document.querySelectorAll('.frame iframe').forEach(function(f){f.addEventListener('load',function(){try{f.contentDocument.documentElement.style.overflow='hidden';f.contentDocument.body.style.overflow='hidden';}catch(e){}fitFrames();});});
   fitFrames(); setTimeout(fitFrames,600); setTimeout(fitFrames,1600);
 </script>
 </body></html>
