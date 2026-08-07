@@ -69,7 +69,7 @@
   @keyframes slide{to{transform:translateX(-50%)}}
 
   /* ---------- section frame ---------- */
-  section{position:relative;padding:120px 0}
+  section{position:relative;padding:94px 0}
   .kicker{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:20px;display:flex;align-items:center;gap:12px}
   .kicker::before{content:"";width:26px;height:1px;background:var(--accent)}
   h2{font-family:var(--serif);font-weight:400;font-size:clamp(32px,4.6vw,58px);line-height:1.02;letter-spacing:-.025em;max-width:18ch}
@@ -135,13 +135,15 @@
   .statement .by{margin-top:34px;color:var(--muted);font-size:15px}
 
   /* ---------- final cta ---------- */
-  .final{position:relative;text-align:center;padding:150px 0;overflow:hidden}
+  .final{position:relative;text-align:center;padding:116px 0;overflow:hidden}
   .final .halo{top:auto;bottom:-30%;left:50%;transform:translateX(-50%);right:auto;width:80vw}
   .final h2{margin:0 auto 30px}
 
   /* ---------- footer ---------- */
   footer{border-top:1px solid var(--line);padding:70px 0 40px}
   .foot-top{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;align-items:flex-start}
+  .foot-lead{max-width:34ch}
+  .foot-lead p{margin-top:20px;color:var(--muted);font-size:15px;line-height:1.6}
   .foot-word{font-family:var(--serif);font-size:clamp(40px,9vw,120px);line-height:.9;letter-spacing:-.03em;color:var(--panel);
     -webkit-text-stroke:1px var(--line);margin-top:50px}
   .foot-links{display:flex;gap:60px;flex-wrap:wrap}
@@ -252,7 +254,10 @@
 
 <footer><div class="wrap">
   <div class="foot-top">
-    <a class="brand" href="#top"><svg viewBox="0 0 260 180"><path d="M130 40 C 96 74, 54 96, 8 100 C 60 108, 104 100, 130 74 C 156 100, 200 108, 252 100 C 206 96, 164 74, 130 40 Z"/><path d="M130 74 C 118 104, 108 132, 96 168 C 122 140, 130 112, 130 92 C 130 112, 138 140, 164 168 C 152 132, 142 104, 130 74 Z"/></svg>Falcon Web Studio</a>
+    <div class="foot-lead">
+      <a class="brand" href="#top"><svg viewBox="0 0 260 180"><path d="M130 40 C 96 74, 54 96, 8 100 C 60 108, 104 100, 130 74 C 156 100, 200 108, 252 100 C 206 96, 164 74, 130 40 Z"/><path d="M130 74 C 118 104, 108 132, 96 168 C 122 140, 130 112, 130 92 C 130 112, 138 140, 164 168 C 152 132, 142 104, 130 74 Z"/></svg>Falcon Web Studio</a>
+      <p>Beautiful, high-converting websites for local UK businesses — built fast, priced fairly, and shown to you free before you pay a penny.</p>
+    </div>
     <div class="foot-links">
       <div class="col"><h4>Studio</h4><a href="#work">Work</a><a href="#services">Services</a><a href="#pricing">Pricing</a></div>
       <div class="col"><h4>Start</h4><a href="mailto:info@falconhire.co.uk?subject=Free%20website%20mockup">Free mockup</a><a href="https://buy.stripe.com/aFa00j3iabWU7fEagtcbC04">Book a build</a></div>
@@ -260,7 +265,7 @@
     </div>
   </div>
   <div class="foot-word">FALCON</div>
-  <div class="foot-bot"><span>© 2026 Falcon Web Studio · 15 Lillington Road, Leamington Spa, CV32 5YS</span><span>Payments via Stripe (billed as VanGuard)</span></div>
+  <div class="foot-bot"><span>© 2026 Falcon Web Studio · 15 Lillington Road, Leamington Spa, CV32 5YS</span><span>Designed &amp; built in Warwickshire</span></div>
 </div></footer>
 
 <script>
