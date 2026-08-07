@@ -44,20 +44,21 @@
   ifr.onload=function(){
     try{
       var win=ifr.contentWindow, doc=ifr.contentDocument;
-      function maxScroll(){return Math.max(0, doc.documentElement.scrollHeight - win.innerHeight);}
-      function run(){
-        var start=null, to=maxScroll();
+      function maxScroll(){return Math.max(0, Math.max(doc.body.scrollHeight, doc.documentElement.scrollHeight) - win.innerHeight);}
+      function loop(){
+        var start=null, to=maxScroll(); // measured now — after content has settled
         function step(ts){
           if(!start)start=ts;
           var p=Math.min(1,(ts-start)/DUR);
           var e=p<.5?2*p*p:1-Math.pow(-2*p+2,2)/2; // ease in-out
           win.scrollTo(0,to*e);
           if(p<1)requestAnimationFrame(step);
-          else setTimeout(function(){win.scrollTo(0,0);setTimeout(run,1400);},2200); // hold at bottom, reset, loop
+          else setTimeout(function(){win.scrollTo(0,0);setTimeout(loop,1400);},2200); // hold at bottom, reset, loop
         }
-        setTimeout(function(){requestAnimationFrame(step);},2600); // hold at top so the hook reads
+        requestAnimationFrame(step);
       }
-      run();
+      // wait for fonts/images to settle so the full height is measured, hold at top
+      setTimeout(loop, 2800);
     }catch(e){}
   };
 </script>
