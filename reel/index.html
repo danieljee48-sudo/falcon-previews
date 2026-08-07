@@ -40,7 +40,7 @@
   var ifr=document.getElementById('site');
   ifr.src='/demo/'+site+'/';
   // Scroll duration in seconds — tune with ?dur=  (default 22s = slow & readable)
-  var DUR=(parseFloat(q.get('dur'))||22)*1000;
+  var DUR=(parseFloat(q.get('dur'))||8)*1000;
   ifr.onload=function(){
     try{
       var win=ifr.contentWindow, doc=ifr.contentDocument;
