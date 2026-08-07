@@ -44,6 +44,10 @@
   ifr.onload=function(){
     try{
       var win=ifr.contentWindow, doc=ifr.contentDocument;
+      // The mockup sets scroll-behavior:smooth — that fights our per-frame
+      // scrollTo and causes lurching. Force instant so our motion is even.
+      doc.documentElement.style.scrollBehavior='auto';
+      if(doc.body)doc.body.style.scrollBehavior='auto';
       function maxScroll(){return Math.max(0, Math.max(doc.body.scrollHeight, doc.documentElement.scrollHeight) - win.innerHeight);}
       function loop(){
         var start=null, to=maxScroll(); // measured now — after content has settled
