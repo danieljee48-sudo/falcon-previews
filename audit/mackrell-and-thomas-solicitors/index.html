@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en-GB"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Accessibility report — The Beauty Room</title>
-<meta name="description" content="Automated website accessibility snapshot for The Beauty Room against WCAG 2.2 AA.">
+<title>Accessibility report — Mackrell &amp; Thomas Solicitors</title>
+<meta name="description" content="Automated website accessibility snapshot for Mackrell &amp; Thomas Solicitors against WCAG 2.2 AA.">
 <meta name="robots" content="noindex,nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -23,7 +23,7 @@
   .sub{color:var(--muted);font-size:15px}
   .scorecard{display:flex;gap:24px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:26px;margin:24px 0;flex-wrap:wrap}
   .gauge{width:132px;height:132px;border-radius:50%;display:grid;place-items:center;flex:none;
-    background:conic-gradient(#b3261e calc(25*1%),#eaeef2 0);position:relative}
+    background:conic-gradient(#b3261e calc(11*1%),#eaeef2 0);position:relative}
   .gauge::before{content:"";position:absolute;inset:12px;background:var(--card);border-radius:50%}
   .gauge .num{position:relative;font-size:34px;font-weight:800;color:#b3261e;line-height:1}
   .gauge .den{position:relative;font-size:13px;color:var(--muted);margin-top:2px}
@@ -65,15 +65,15 @@
 <main class="wrap">
   <div class="hero">
     <div class="eyebrow">Automated accessibility snapshot</div>
-    <h1>The Beauty Room</h1>
-    <div class="sub">http://www.thebeautyroomuk.com · tested against WCAG 2.2 AA</div>
+    <h1>Mackrell &amp; Thomas Solicitors</h1>
+    <div class="sub">https://www.mackrellandthomas.com/ · tested against WCAG 2.2 AA</div>
   </div>
   <div class="scorecard">
-    <div class="gauge"><span class="num">25</span><span class="den">/ 100</span></div>
+    <div class="gauge"><span class="num">11</span><span class="den">/ 100</span></div>
     <div class="score-meta">
       <span class="pill">Below standard</span>
       <h2>Significant accessibility barriers to address</h2>
-      <div class="counts"><span><b>11</b> issue types</span><span><b>102</b> elements affected</span><span><b>6</b> high-priority</span></div>
+      <div class="counts"><span><b>10</b> issue types</span><span><b>38</b> elements affected</span><span><b>9</b> high-priority</span></div>
     </div>
   </div>
 
@@ -81,22 +81,22 @@
     <h2 class="h">Top issues found</h2>
     <p class="lead">A plain-English summary of the most significant problems. These affect real visitors — and fall under the Equality Act 2010 duty to make reasonable adjustments.</p>
     <div class="issue">
-      <div class="issue-top"><span class="imp" style="background:#b3261e">CRITICAL</span><h3>Broken ARIA structure</h3><span class="count">1 element</span></div>
-      <p>Interactive components are announced incorrectly, confusing assistive-tech users.</p><div class="ref">WCAG 1.3.1</div>
-    </div><div class="issue">
-      <div class="issue-top"><span class="imp" style="background:#b3261e">CRITICAL</span><h3>Images missing alternative text</h3><span class="count">3 elements</span></div>
+      <div class="issue-top"><span class="imp" style="background:#b3261e">CRITICAL</span><h3>Images missing alternative text</h3><span class="count">1 element</span></div>
       <p>Screen-reader users (blind/low-vision) get nothing where an image should convey meaning.</p><div class="ref">WCAG 1.1.1</div>
     </div><div class="issue">
-      <div class="issue-top"><span class="imp" style="background:#b26a00">SERIOUS</span><h3>Progress bar has no name</h3><span class="count">1 element</span></div>
-      <p>Users can’t tell what is loading or how far along it is.</p><div class="ref">WCAG 4.1.2</div>
+      <div class="issue-top"><span class="imp" style="background:#b3261e">CRITICAL</span><h3>Form fields without labels</h3><span class="count">4 elements</span></div>
+      <p>Users can’t tell what to type — enquiries and contact forms become unusable for many.</p><div class="ref">WCAG 3.3.2</div>
     </div><div class="issue">
-      <div class="issue-top"><span class="imp" style="background:#b26a00">SERIOUS</span><h3>Text fails minimum colour-contrast</h3><span class="count">3 elements</span></div>
+      <div class="issue-top"><span class="imp" style="background:#b26a00">SERIOUS</span><h3>ARIA input fields must have an accessible name</h3><span class="count">1 element</span></div>
+      <p>Ensure every ARIA input field has an accessible name</p><div class="ref">WCAG 2A</div>
+    </div><div class="issue">
+      <div class="issue-top"><span class="imp" style="background:#b26a00">SERIOUS</span><h3>Text fails minimum colour-contrast</h3><span class="count">26 elements</span></div>
       <p>Low-contrast text is unreadable for older visitors and anyone with low vision — a large share of the population.</p><div class="ref">WCAG 1.4.3</div>
     </div>
   </section>
 
   <div class="locked">
-    <h2>See all 11 issues — and exactly how to fix each</h2>
+    <h2>See all 10 issues — and exactly how to fix each</h2>
     <p>The full report lists every issue with the affected elements, a prioritised action plan, and step-by-step fixes mapped to WCAG 2.2 AA — everything your developer needs to bring the site up to standard.</p>
     <div class="example"><b>Example from the full report:</b> “Links with no discernible text (WCAG 2.4.4) — 12 links contain only an icon or image. Fix: add descriptive link text or an <code>aria-label</code>, e.g. <code>&lt;a aria-label="Call us"&gt;</code>. Priority: High.”</div>
     <a class="btn" href="https://buy.stripe.com/aFacN5g4WbWU6bA2O1cbC06">Unlock full report &amp; fix plan — £99</a>

@@ -3,6 +3,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Accessibility report — The Hair Salon</title>
 <meta name="description" content="Automated website accessibility snapshot for The Hair Salon against WCAG 2.2 AA.">
+<meta name="robots" content="noindex,nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -46,7 +47,10 @@
   .locked p{color:var(--muted);font-size:15px;max-width:52ch;margin:0 auto 18px}
   .btn{display:inline-block;background:var(--accent);color:#fff;font-weight:700;font-size:16px;padding:15px 30px;border-radius:10px;text-decoration:none}
   .btn.alt{background:#fff;color:var(--accent);border:1.5px solid var(--accent);margin-left:8px}
+  .example{text-align:left;background:#f4f7fa;border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:8px;padding:14px 16px;margin:0 auto 18px;max-width:60ch;font-size:13.5px;color:var(--muted)}
+  .example code{background:#e7edf3;padding:1px 5px;border-radius:4px;font-size:12.5px}
   .price-row{margin-top:16px;font-size:13px;color:var(--muted)}
+  .price-row .vg{color:#8a95a0}
   .trust{display:grid;grid-template-columns:1fr 1fr;gap:16px}
   @media(max-width:560px){.trust{grid-template-columns:1fr}}
   .trust .t{font-size:14px}.trust .t b{display:block;margin-bottom:3px}
@@ -67,9 +71,9 @@
   <div class="scorecard">
     <div class="gauge"><span class="num">40</span><span class="den">/ 100</span></div>
     <div class="score-meta">
-      <span class="pill">At risk</span>
-      <h2>Significant accessibility barriers found</h2>
-      <div class="counts"><span><b>7</b> issue types</span><span><b>68</b> elements affected</span><span><b>5</b> high-priority</span></div>
+      <span class="pill">Below standard</span>
+      <h2>Multiple accessibility barriers to address</h2>
+      <div class="counts"><span><b>7</b> issue types</span><span><b>67</b> elements affected</span><span><b>5</b> high-priority</span></div>
     </div>
   </div>
 
@@ -83,7 +87,7 @@
       <div class="issue-top"><span class="imp" style="background:#b3261e">CRITICAL</span><h3>Images missing alternative text</h3><span class="count">4 elements</span></div>
       <p>Screen-reader users (blind/low-vision) get nothing where an image should convey meaning.</p><div class="ref">WCAG 1.1.1</div>
     </div><div class="issue">
-      <div class="issue-top"><span class="imp" style="background:#b26a00">SERIOUS</span><h3>Text fails minimum colour-contrast</h3><span class="count">11 elements</span></div>
+      <div class="issue-top"><span class="imp" style="background:#b26a00">SERIOUS</span><h3>Text fails minimum colour-contrast</h3><span class="count">10 elements</span></div>
       <p>Low-contrast text is unreadable for older visitors and anyone with low vision — a large share of the population.</p><div class="ref">WCAG 1.4.3</div>
     </div><div class="issue">
       <div class="issue-top"><span class="imp" style="background:#b26a00">SERIOUS</span><h3>Embedded frames have no title</h3><span class="count">5 elements</span></div>
@@ -93,19 +97,20 @@
 
   <div class="locked">
     <h2>See all 7 issues — and exactly how to fix each</h2>
-    <p>The full report lists every issue with the affected page elements, a prioritised action plan, and step-by-step fixes mapped to WCAG 2.2 AA. Everything your developer needs to make the site compliant.</p>
+    <p>The full report lists every issue with the affected elements, a prioritised action plan, and step-by-step fixes mapped to WCAG 2.2 AA — everything your developer needs to bring the site up to standard.</p>
+    <div class="example"><b>Example from the full report:</b> “Links with no discernible text (WCAG 2.4.4) — 12 links contain only an icon or image. Fix: add descriptive link text or an <code>aria-label</code>, e.g. <code>&lt;a aria-label="Call us"&gt;</code>. Priority: High.”</div>
     <a class="btn" href="https://buy.stripe.com/aFacN5g4WbWU6bA2O1cbC06">Unlock full report &amp; fix plan — £99</a>
     <a class="btn alt" href="https://buy.stripe.com/8x28wPaKC5yw2ZofANcbC05">Have us fix it — from £399</a>
-    <div class="price-row">Secure checkout via Stripe (billed as VanGuard). Report delivered within a few hours of purchase.</div>
+    <div class="price-row">Secure Stripe checkout. After payment, Daniel emails your full PDF report the same working day. <span class="vg">(Card statements show our payment processor, VanGuard.)</span></div>
   </div>
 
   <section>
     <h2 class="h">Why this matters</h2>
     <div class="trust">
-      <div class="t"><b>It’s a legal duty</b>Under the Equality Act 2010, service providers must make reasonable adjustments so disabled people can use their services — including websites.</div>
-      <div class="t"><b>It’s lost business</b>Around 1 in 5 people in the UK have a disability. Barriers turn away real enquiries and clients.</div>
-      <div class="t"><b>How we tested</b>An automated audit using axe-core, the industry-standard engine used by government and enterprise accessibility teams.</div>
-      <div class="t"><b>What you get</b>The full report is a clear, prioritised fix list — usable by any web developer, or we can implement it for you.</div>
+      <div class="t"><b>A legal duty</b>The Equality Act 2010 requires service providers to make reasonable adjustments so disabled people can use their services — websites included.</div>
+      <div class="t"><b>The benchmark</b>WCAG 2.2 AA isn’t itself a statute for private firms, but it’s the recognised standard used to show that duty has been met.</div>
+      <div class="t"><b>Lost business</b>Around 1 in 5 UK adults have a disability. Barriers quietly turn away real enquiries.</div>
+      <div class="t"><b>How we tested</b>An automated audit with axe-core — the engine used by government and enterprise accessibility teams. We don’t store or share your site data.</div>
     </div>
     <p class="note" style="margin-top:16px">This is an automated snapshot and a helpful starting point, not a certified manual audit or legal advice. Automated testing catches many but not all accessibility issues.</p>
   </section>
